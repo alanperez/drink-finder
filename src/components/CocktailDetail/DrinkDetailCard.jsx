@@ -118,7 +118,7 @@ const DrinkDetailCard =() => {
         alignItems: "center",
         justifyContent: "center",
         "&:hover": {
-          backgroundcolor: "red"
+          backgroundcolor: "blue"
         }}}
         open={open}
         onClose={handleClose}
@@ -139,6 +139,7 @@ const DrinkDetailCard =() => {
           <CardMedia
         component="img"
         image={currentDetail.strDrinkThumb}
+        style={{ cursor: 'pointer' }}
         onClick={(e) => handleImage(currentDetail.strDrinkThumb)}
       />
   
