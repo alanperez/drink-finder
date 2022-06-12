@@ -18,6 +18,7 @@ once user focus out the input or select s different filter option and there is v
 
  
 2.	Illustration
+![image](https://user-images.githubusercontent.com/25354218/173209631-ade8ffdd-0dd0-460d-b8e6-11bac3664698.png)
 
 3.	General Requirements
 	Keep your code clean and readable.
