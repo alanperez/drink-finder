@@ -1,7 +1,7 @@
 
 
 
-- [ ] At the initial loading of the page, you should render a random drink from the API above
+- [x] At the initial loading of the page, you should render a random drink from the API above
 - [ ] user should be able to type a drink name and search it by clicking the search button
 - [ ] Previous search names should be saved and displayed under the search input as a clickable element
 - [ ] By clicking on the previous search, it will trigger the search again with the right results. 
