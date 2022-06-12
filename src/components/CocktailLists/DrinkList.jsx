@@ -4,9 +4,6 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { useGlobalContext } from '../../context/apiContext';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
 import ListedDrinks from './ListedDrinks';
@@ -33,7 +30,7 @@ const DrinkList = () => {
   // console.log('clg curr det', currentDetail)
     return (
       
-        <Box>
+        <Box sx={{ borderRadius: '5px' }} >
           {initialResults < 1 ? (
             <div></div>
           ):
@@ -41,15 +38,15 @@ const DrinkList = () => {
         <Grid container>
           <div></div>
         </Grid>
-        <Grid container style={{height: "fit-content"}}>
+        <Grid container >
             <Grid container item xs={12} md={8} >
                 <FilterBy/>
             </Grid>
             <Grid container item xs={12} md={4} >
                 <SortBy />
             </Grid>
-          <Grid item xs={12} md={3} >
-              <Item >
+          <Grid item xs={12} md={3}  >
+              <Item sx={{height: 500}}>
                 <Typography variant='h5'>Drink Results</Typography>
                 <ListedDrinks />
               </Item>
@@ -57,7 +54,7 @@ const DrinkList = () => {
           </Grid>
           <Grid item xs={12} md={9} >
 
-              <Item><Typography variant='h5'>Full Details</Typography>
+              <Item sx={{height: 500}}><Typography variant='h5'>Full Details</Typography>
               <DrinkDetailCard/>
               </Item>
             

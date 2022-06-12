@@ -6,16 +6,16 @@ import {
   Fade} from '@mui/material';
 import { useGlobalContext } from "../../context/apiContext";
 import axios from "axios";
-
+import {Card} from '@mui/material';
 import { CardMedia } from '@mui/material';
 
 
 
-
+import {Typography} from '@mui/material';
 
 const DrinkDetailCard =() => {
 
-    const {currentDetail, setCurrentDetail} = useGlobalContext()
+    const {currentDetail, setCurrentDetail,loading, setLoading} = useGlobalContext()
     const [initIngredient,setIngredients] = useState([])
 
     useEffect(() => {
@@ -50,12 +50,13 @@ const DrinkDetailCard =() => {
 
   const allIngredients = () => {
     let newIngredients = []
-
     for(let i = 1; i < 15; i++ ) {
       if(currentDetail[`strIngredient${i}`]) {
-        newIngredients.push(currentDetail[`strIngredient${i}`])
+        newIngredients.push(currentDetail[`strIngredient${i}`] + ', ')
       }
     }
+    // let modifiedIngr = newIngredients.join(", ")
+
     return newIngredients
 
   }
@@ -65,7 +66,7 @@ const DrinkDetailCard =() => {
 }, [currentDetail]);
 
 
-// console.log('clg ingredient', initIngredient)
+console.log('clg ingredient', initIngredient)
     return(
 
 
@@ -76,42 +77,39 @@ const DrinkDetailCard =() => {
       <Grid  
         container
        direction="row"
-       style={{height: "100%" }}>
-        <Grid item xs={4}  alignItems="center">
+  
+       >
+        <Grid item xs={6}  direction="column" alignItems="center" >
           {
             (currentDetail < 1) ?
             null : 
 
          
           <div>
-              <p>
-                Drink:
-                <span>{currentDetail.strDrink}</span>
-              </p>
-              <p>
-                Category:
-                <span>{currentDetail.strCategory}</span>
-              </p>
-              <p>
-                Glass:
-                <span>{currentDetail.strDrink}</span>
-              </p>
-              <p>
-                Instructions:
-                <span>{currentDetail.strInstructions}</span>
-              </p>
-              <p>
-                Ingredients:
-                <span>{initIngredient}</span>
-              </p>
-              <p>
-                Date:
-                <span>{new Date(currentDetail.dateModified).toLocaleDateString('en-GB', {   year: 'numeric', month: '2-digit',   day: '2-digit',    }).replace(/\//g, '-')}</span>
-              </p>
+               <Typography gutterBottom variant="h4" component="div">
+                {currentDetail.strDrink}
+              </Typography>
+             
+              <Typography variant="subtitle1" gutterBottom component="div">
+                Category: {currentDetail.strCategory}
+              </Typography>
+              <Typography variant="subtitle1" gutterBottom component="div">
+                Glass: {currentDetail.strGlass}
+              </Typography>
+              <Typography variant="subtitle1" gutterBottom component="div">
+                Instructions: {currentDetail.strInstructions}
+              </Typography>
+              <Typography variant="subtitle1" gutterBottom component="div">
+                Ingredients: {initIngredient}
+              </Typography>
+              <Typography variant="subtitle1" gutterBottom component="div">
+              {new Date(currentDetail.dateModified).toLocaleDateString('en-GB', {   year: 'numeric', month: '2-digit',   day: '2-digit',    }).replace(/\//g, '-')}
+              </Typography>
+
           </div>    
            }
         </Grid>
-        <Grid item xs={8}  alignItems="center">
+        <Grid item xs={6}  alignItems="center">
         
         <Modal
         style={{display: "flex",
@@ -136,12 +134,16 @@ const DrinkDetailCard =() => {
           />
         </Fade>
       </Modal>
+      <Card sx={{ maxWidth: 350 }}>
+
           <CardMedia
         component="img"
         image={currentDetail.strDrinkThumb}
         style={{ cursor: 'pointer' }}
+   
         onClick={(e) => handleImage(currentDetail.strDrinkThumb)}
-      />
+        />
+        </Card>
   
           
         </Grid>

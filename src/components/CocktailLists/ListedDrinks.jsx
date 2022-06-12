@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from '@mui/material/Typography';
-import { Box, Grid,List, ListItem,ListItemText  } from "@mui/material";
+import { Box,List, ListItem,ListItemText  } from "@mui/material";
 import { useGlobalContext } from "../../context/apiContext";
 import Loader from "../Loader/Loading";
 
@@ -13,11 +13,11 @@ const ListedDrinks = () => {
 
     // console.log(initialResults)
     return (
-        <Box >
+        <Box>
 
             {loading && <Loader />}
             {!loading && initialResults.length < 1 && <></>}
-            <List style={{maxHeight: 550, overflow: 'auto'}}>
+            <List sx={{maxHeight: 400, overflow: 'auto'}} >
 
         {initialResults.map((drink, indx) => (
         

@@ -1,4 +1,4 @@
-import React, {useState,useContext, useRef, useEffect} from "react";
+import React, {useState} from "react";
 import Button from '@mui/material/Button';
 
 import { Grid,Autocomplete,TextField } from "@mui/material";
@@ -6,7 +6,7 @@ import { useAPI } from "../../context/apiContext";
 import { useGlobalContext } from "../../context/apiContext";
 const SearchBar = () => {
 
-  const {drinkSearch, setLocalStorage, initialHistory} = useGlobalContext()
+  const {setLocalStorage, initialHistory} = useGlobalContext()
   const {searchDrinks} = useAPI()
 
   const [search, setSearch] = useState()
