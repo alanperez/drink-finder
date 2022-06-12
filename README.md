@@ -1,5 +1,7 @@
+# Description
 
 
+## Features to implement
 
 - [x] At the initial loading of the page, you should render a random drink from the API above
 - [x] user should be able to type a drink name and search it by clicking the search button
