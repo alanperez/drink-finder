@@ -15,7 +15,7 @@ import {Typography} from '@mui/material';
 
 const DrinkDetailCard =() => {
 
-    const {currentDetail, setCurrentDetail,loading, setLoading} = useGlobalContext()
+    const {currentDetail, setCurrentDetail,loading, setLoading, initialResults} = useGlobalContext()
     const [initIngredient,setIngredients] = useState([])
 
     useEffect(() => {
@@ -27,9 +27,11 @@ const DrinkDetailCard =() => {
         )
         .then((response) => {
           // console.log('inside the useffect for our details', response.data.drinks[0])
-
+          console.log('clg inside dtailcard', currentDetail)
           setCurrentDetail(response.data.drinks[0]);
+          console.log('cz', response.data)
         });
+
     }, [currentDetail]);
     
   // console.log('clg inside detailcard', currentDetail)
@@ -66,26 +68,27 @@ const DrinkDetailCard =() => {
 }, [currentDetail]);
 
 
-console.log('clg ingredient', initIngredient)
+// console.log('clg ingredient', initIngredient)
     return(
 
 
+      
+      
+      
+      <div>
 
+      {
+        (!currentDetail ?  ('none') :(        
+          <Grid  
+            container
+           direction="row"
+      
+           >
+          
+          <Grid item xs={6}  direction="column" alignItems="center" >
 
-    
-
-      <Grid  
-        container
-       direction="row"
-  
-       >
-        <Grid item xs={6}  direction="column" alignItems="center" >
-          {
-            (currentDetail < 1) ?
-            null : 
 
          
-          <div>
                <Typography gutterBottom variant="h4" component="div">
                 {currentDetail.strDrink}
               </Typography>
@@ -106,8 +109,8 @@ console.log('clg ingredient', initIngredient)
               {new Date(currentDetail.dateModified).toLocaleDateString('en-GB', {   year: 'numeric', month: '2-digit',   day: '2-digit',    }).replace(/\//g, '-')}
               </Typography>
 
-          </div>    
-           }
+ 
+           
         </Grid>
         <Grid item xs={6}  alignItems="center">
         
@@ -145,9 +148,12 @@ console.log('clg ingredient', initIngredient)
         />
         </Card>
   
-          
         </Grid>
-      </Grid>
+        </Grid>
+        ))
+      }
+      </div>    
+
     
 
  

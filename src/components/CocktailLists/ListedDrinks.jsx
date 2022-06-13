@@ -14,9 +14,9 @@ const ListedDrinks = () => {
     // console.log(initialResults)
     return (
         <Box>
-
+{/* 
             {loading && <Loader />}
-            {!loading && initialResults.length < 1 && <></>}
+            {!loading && initialResults.length < 1 && <></>} */}
             <List sx={{maxHeight: 400, overflow: 'auto'}} >
 
         {initialResults.map((drink, indx) => (

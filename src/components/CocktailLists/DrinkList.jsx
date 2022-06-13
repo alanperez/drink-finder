@@ -36,7 +36,7 @@ const DrinkList = () => {
           ):
     <>
         <Grid container>
-          <div></div>
+    
         </Grid>
         <Grid container >
             <Grid container item xs={12} md={8} >
